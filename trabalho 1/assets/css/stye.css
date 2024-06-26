@@ -1,0 +1,15 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+img.rounded-circle {
+    border-radius: 50%;
+}
