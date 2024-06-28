@@ -1,110 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>Página Inicial</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
+    <!-- Cabeçalho -->
     <header class="p-3 bg-dark text-white">
         <div class="container">
             <div class="d-flex justify-content-between">
-                <h1> Pedro Querioz </h1>
+                <h1>Pedro QR</h1>
                 <nav>
                     <a href="#section1" class="text-white me-3">Perfil</a>
-                    <a href="#section2" class="text-white me-3">Repositorios</a>
-                    <a href="#section3" class="text-white me-3">Carrosel</a>
+                    <a href="#section2" class="text-white me-3">Repositório</a>
+                    <a href="#section3" class="text-white me-3">Carrossel</a>
                     <a href="#section4" class="text-white">Colegas</a>
                 </nav>
             </div>
         </div>
     </header>
     
-    <!-- Section 1: Perfil -->
+    <!-- Seção 1: Perfil -->
     <section id="section1" class="container my-5">
         <div class="row">
             <div class="col-md-3">
-                <img src="assets/img/profile.png" class="img-fluid rounded-circle" alt="Profile Picture">
+                <img id="profile-avatar" class="img-fluid rounded-circle" alt="Foto do Perfil">
             </div>
             <div class="col-md-9">
-                <h2>Pedro Queiroz Rolim
-                </h2>
-                <p>a student :) pt/br #opentowork
-                </p>
+                <h2 id="profile-name">Nome</h2>
+                <p id="profile-bio">Bio</p>
                 <div>
-                    <a href="mailto:pedroq.rolim@gmail.com"><img src="assets/img/email-icon.png" alt="Email"></a>
-                    <a href="https://linkedin.com/in/yourprofile"><img src="assets/img/linkedin-icon.png" alt="LinkedIn"></a>
-                    <a href="https://github.com/PedroQR"><img src="assets/img/github-icon.png" alt="GitHub"></a>
+                    <a id="profile-email" href="#"><img src="assets/img/email-icon.png" alt="Email"></a>
+                    <a id="profile-linkedin" href="#"><img src="assets/img/linkedin-icon.png" alt="LinkedIn"></a>
+                    <a id="profile-github" href="#"><img src="assets/img/github-icon.png" alt="GitHub"></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 2: Repositorios -->
+    <!-- Seção 2: Repositórios -->
     <section id="section2" class="container my-5">
-        <h2>Repositorios</h2>
-        <div class="row">
-            <!-- Repeat this block for each repository -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Repo Title</h5>
-                        <p class="card-text">Short description of the repository...</p>
-                        <a href="repo.html" class="btn btn-primary">Details</a>
-                    </div>
-                </div>
-            </div>
-            <!-- End repeat -->
+        <h2>Repositórios</h2>
+        <div id="repos" class="row">
+            <!-- Repositórios serão adicionados dinamicamente aqui -->
         </div>
     </section>
 
-    <!-- Section 3: Carrossel -->
+    <!-- Seção 3: Carrossel -->
     <section id="section3" class="container my-5">
-        <h2>Suggested Content</h2>
-        <div id="contentCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <!-- Repeat this block for each carousel item -->
-                <div class="carousel-item active">
-                    <img src="assets/img/img1.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Content Title</h5>
-                        <p>Short description of the content...</p>
-                    </div>
-                </div>
-                <!-- End repeat -->
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#contentCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#contentCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+        <h1>GitHub Profiles Carousel</h1>
+    <div id="profileCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" id="carousel-inner">
+            <!-- Items will be injected here by JavaScript -->
         </div>
+    </div>
+    <div class="carousel-controls">
+        <button id="prevBtn" class="btn btn-primary">Previous</button>
+        <button id="nextBtn" class="btn btn-primary">Next</button>
+    </div>
     </section>
 
-    <!-- Section 4: Colegas -->
-    <section id="section4" class="container my-5">
+    <!-- Seção 4: Colegas -->
+    <section id="section4" class="container my-5"></section>
         <h2>Colegas</h2>
-        <div class="row">
-            <!-- Repeat this block for each colleague -->
-            <div class="col-md-2 text-center">
-                <img src="assets/img/colleague1.jpg" class="img-fluid rounded-circle" alt="Colleague 1">
-                <p>Colleague 1</p>
-            </div>
-            <!-- End repeat -->
+        <div id="colleagues" class="row">
+            <!-- Colegas serão adicionados dinamicamente aqui -->
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-white p-3 text-center">
-        <p>&copy; 2024 Your Name</p>
-    </footer>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/app.js"></script>
+
 </body>
 </html>
